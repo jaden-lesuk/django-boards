@@ -116,7 +116,6 @@ class NewTopicTests(TestCase):
         self.assertIsInstance(form, NewTopicForm)
     '''
 
-
     def test_new_topic_invalid_test_data(self):
         url = reverse('new_topic', kwargs={'pk': 1})
         response = self.client.get(url, {})
