@@ -16,6 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.urls import re_path
+from django.contrib.auth import views as auth_views
 
 from accounts import views as accounts_views
 from boards import views
@@ -23,6 +24,7 @@ from boards import views
 urlpatterns = [
     path('', views.home, name="home"),
     re_path('signup/$', accounts_views.signup, name='signup'),
+    re_path('logout/$', auth_views.LogoutView.as_view(), name='logout'),
     re_path('boards/(?P<pk>\d+)/$', views.board_topics, name='board_topics'),
     re_path('boards/(?P<pk>\d+)/new/$', views.new_topic, name='new_topic'),
     path('admin/', admin.site.urls),
